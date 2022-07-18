@@ -11,11 +11,11 @@ It is also capable of moving an instance from one cluster to another providing y
 
 Basic steps of how this script works:
 
-1. Create a logical volume on the destination node with the same size as the original logical volume from the instance we're moving.
-2. Shutdown and rename the original instance ( Rename is neccessary so we can create an instance with the original name )
-3. Copy the instance filesystem from the source node to the new logical volume on the destination node
-4. Add a new KVM instance using the original instance name on the destination node whilst adopting the new logical volume we just created / copied data to
-5. Pause and ask the user for a confirmation if they would like to remove the original instance on the source node. ( gives the user time to check before removing the original )
+1. Create a logical volume on the destination node ( Same size as the original logical volume of the instance we're moving ).
+2. Shutdown and rename the original instance ( Rename is neccessary so we can create a new instance with the original name ).
+3. Copy the instance filesystem from the source node to the new logical volume on the destination node.
+4. Add a new instance on the destination node ( Using the original instance name ) adopting the new logical volume we created & copied data to.
+5. Pause and ask the user for a confirmation if they would like to remove the original instance on the source node. ( Gives the user time to check before removing the original instance ).
 6. Clean up
 
 
