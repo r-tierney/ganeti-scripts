@@ -142,7 +142,7 @@ function migrate {
 
     #### Get the Destination node ready, create an lv, mkfs, mount it.
     echo -e "#### Preparing logical volume on ${DESTINATION_NODE} to receive data\n"
-    ssh "$DESTINATION_NODE" "lvcreate xenvg --size $DISK_SIZE --name ${DESTINATION_LV} --wipesignatures y --yes --zero y"
+    ssh "$DESTINATION_NODE" "lvcreate $VOLUME_GROUP --size $DISK_SIZE --name ${DESTINATION_LV} --wipesignatures y --yes --zero y"
     TARGET=$(ssh "$DESTINATION_NODE" "mktemp -d --tmpdir=${EXPORT_DIR}")
     cleanup_cmds+=("ssh $DESTINATION_NODE \"rmdir $TARGET\"")
 
